@@ -2,7 +2,7 @@ from datetime import datetime, time, date
 from Staff import Staff
 
 
-# input and type verifier decorative for Observation Record class
+# input and type verifier decorator for Observation Record class
 def input_verifier(*types):
     def wrapper(f):
         def verify(*values):

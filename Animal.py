@@ -2,7 +2,7 @@ from datetime import date
 from random import randint
 
 
-# input and type verifier decorative for Animal class
+# input and type verifier decorator for Animal class
 def input_verifier(*types):
     def wrapper(f):
         def verify(*values):

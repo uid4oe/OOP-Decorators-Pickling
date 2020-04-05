@@ -4,7 +4,7 @@ from Food import Food
 from Staff import Staff
 
 
-# input and type verifier decorative for Feeding Record class
+# input and type verifier decorator for Feeding Record class
 def input_verifier(*types):
     def wrapper(f):
         def verify(*values):

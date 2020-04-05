@@ -1,4 +1,4 @@
-# input and type verifier decorative for Food class
+# input and type verifier decorator for Food class
 def input_verifier(*types):
     def wrapper(f):
         def verify(*values):

@@ -2,7 +2,7 @@ from random import randint
 from re import search
 
 
-# input and type verifier decorative for Staff class
+# input and type verifier decorator for Staff class
 def input_verifier(*types):
     def wrapper(f):
         def verify(*values):
