@@ -1,7 +1,7 @@
-from datetime import datetime, time, date
+from datetime import time, date
 
-from Food import Food
-from Staff import Staff
+from Classes.Food import Food
+from Classes.Staff import Staff
 
 
 # input and type verifier decorator for Feeding Record class

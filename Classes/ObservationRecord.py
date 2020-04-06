@@ -1,5 +1,5 @@
-from datetime import datetime, time, date
-from Staff import Staff
+from datetime import time, date
+from Classes.Staff import Staff
 
 
 # input and type verifier decorator for Observation Record class

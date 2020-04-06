@@ -1,7 +1,7 @@
-from Animal import Animal
-from Food import Food
-from Staff import Staff
-from Parsers import animal_parser, date_parser
+from Classes.Animal import Animal
+from Classes.Food import Food
+from Classes.Staff import Staff
+from Helpers.Parsers import animal_parser, date_parser
 
 class ReportOperations:
     @staticmethod

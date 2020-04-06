@@ -1,7 +1,7 @@
 from datetime import datetime
-from Animal import Animal, get_animal
-from Food import Food, get_food
-from Staff import Staff, get_staff
+from Classes.Animal import Animal, get_animal
+from Classes.Food import Food, get_food
+from Classes.Staff import Staff, get_staff
 
 
 def animal_parser():

@@ -1,10 +1,10 @@
 from re import search
-from FeedingRecord import FeedingRecord
-from ObservationRecord import ObservationRecord
-from Staff import Staff
-from Food import Food
-from Animal import Animal
-from Parsers import animal_parser,date_parser,staff_parser,time_parser,food_parser
+from Classes.FeedingRecord import FeedingRecord
+from Classes.ObservationRecord import ObservationRecord
+from Classes.Staff import Staff
+from Classes.Food import Food
+from Classes.Animal import Animal
+from Helpers.Parsers import animal_parser, date_parser, staff_parser, time_parser, food_parser
 
 
 class AdditionOperations:
@@ -53,7 +53,6 @@ class AdditionOperations:
         print("--Add food--")
         name = input("Enter Food Name:")
         manufacturer = input("Enter Manufacturer:")
-
         Food(name, manufacturer)
 
     @staticmethod
