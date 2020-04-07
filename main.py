@@ -4,6 +4,7 @@ from Classes.Animal import Animal
 from Classes.Food import Food
 from Classes.Staff import Staff
 import pickle
+import sys
 
 report_menu = str("--Report Menu--\n"
                   "1)Details of all staff\n"
@@ -29,7 +30,8 @@ main_menu = str("--Main Menu--\n"
 
 class Application:
 
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.staff = Staff.staff_list
         self.animal = Animal.animal_list
         self.food = Food.food_list
@@ -76,25 +78,32 @@ class Application:
                 print(f"Error: {e}")
 
     def store_data(self):
-        file = open('app.txt', 'wb')
+        file = open(self.name, 'wb')
         pickle.dump(self, file)
         file.close()
 
     @staticmethod
-    def load_data():
+    def load_data(name):
         try:
-            file = open('app.txt', 'rb')
+            file = open(name, 'rb')
             data = pickle.load(file)
             if type(data) is Application:
                 Staff.staff_list = data.staff
                 Animal.animal_list = data.animal
                 Food.food_list = data.food
+                print("File loaded.")
             file.close()
         except:
             print("File not found.")
+            exit(-1)
 
 
 if __name__ == '__main__':
-    Application.load_data()
-    app = Application()
+    if len(sys.argv) == 2:
+        Application.load_data(sys.argv[1])
+        app = Application(sys.argv[1])
+    else:
+        print("File not provided, creating new application.")
+        new_app_name = input("Enter Name of the Application:")
+        app = Application(new_app_name + ".txt")
     app.menu()
