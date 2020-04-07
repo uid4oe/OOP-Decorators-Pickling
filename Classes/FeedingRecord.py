@@ -47,6 +47,6 @@ class FeedingRecord:
         self.staff = verified_input["staff"]
 
     def __str__(self):
-        return f"Date: {self.date} - Time: {self.time} - Food Name: {self.food.name} " \
-               f"- Manufacturer: {self.food.manufacturer} - Weight: {self.weight} - " \
-               f"Staff: {self.staff.first_name + ' ' + self.staff.last_name}"
+        return f"{self.date}\t{self.time}\t{self.food.name}\t" \
+               f"{self.food.manufacturer}\t{self.weight}\t" \
+               f"{self.staff.first_name + ' ' + self.staff.last_name}"

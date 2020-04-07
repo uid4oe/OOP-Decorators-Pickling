@@ -34,7 +34,7 @@ class Food:
         Food.food_list[self.name + self.manufacturer] = self
 
     def __str__(self):
-        return f"Food Name: {self.name} - Manufacturer: {self.manufacturer}"
+        return f"{self.name}\t{self.manufacturer}"
 
 
 def get_food(value):

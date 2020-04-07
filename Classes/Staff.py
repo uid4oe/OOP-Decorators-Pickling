@@ -58,7 +58,7 @@ class Staff:
         Staff.staff_list[self.id] = self
 
     def __str__(self):
-        return f"ID: {self.id} - First Name: {self.first_name} - Last Name: {self.last_name} - Office: {self.office} - Tel: {self.tel}"
+        return f"{self.id}\t{self.first_name}\t{self.last_name}\t{self.office}\t{self.tel}"
 
 
 def get_staff(value):

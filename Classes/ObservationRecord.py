@@ -48,6 +48,6 @@ class ObservationRecord:
         self.staff = verified_input["staff"]
 
     def __str__(self):
-        return f"Date: {self.date} - Time: {self.time} - Animal Weight: {self.animal_weight} " \
-               f"- Temperature: {self.temperature} - Note: {self.note} - " \
-               f"Staff: {self.staff.first_name + ' ' + self.staff.last_name}"
+        return f"{self.date}\t{self.time}\t{self.animal_weight}\t" \
+               f"{self.temperature}\t{self.note}\t" \
+               f"{self.staff.first_name + ' ' + self.staff.last_name}"

@@ -76,7 +76,7 @@ class Application:
                 print(f"Error: {e}")
 
     def store_data(self):
-        file = open('app.txt', 'ab')
+        file = open('app.txt', 'wb')
         pickle.dump(self, file)
         file.close()
 

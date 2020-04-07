@@ -72,31 +72,11 @@ class Animal:
         Animal.animal_list[self.no] = self
 
     def __str__(self):
-        return f"No: {self.no} - Gender: {self.gender} - Birthday: {self.birth_day} - Colour: {self.colour}"
-
-    def details_between_dates(self, for_print, operation_type, start_date, end_date):
-        if operation_type == "observation":
-            list_type = self.observation_record
-        elif operation_type == "feeding":
-            list_type = self.feeding_record
-        else:
-            raise Exception("Wrong Operation Type!")
-
-        result = [item for item in list_type if start_date <= item.date <= end_date]
-        if for_print:
-            [print(item) for item in result]
-        else:
-            return len(result)
-
-    def foods_fed(self):
-        unique_foods = set()
-        [unique_foods.add(record.food) for record in self.feeding_record]
-        [print(food) for food in unique_foods]
-
-    def staff_who_observed(self):
-        unique_staff = set()
-        [unique_staff.add(record.staff) for record in self.observation_record]
-        [print(staff) for staff in unique_staff]
+        return f"{self.no}\t{self.gender}\t{self.birth_day}\t{self.colour}\t" \
+               f"{self.environment_conditions['relative_humidity']}\t" \
+               f"{self.environment_conditions['enclosure_size']}\t" \
+               f"{self.environment_conditions['temperature']}\t" \
+               f"{self.environment_conditions['hours_of_light_per_day']}"
 
 
 def get_animal(value):

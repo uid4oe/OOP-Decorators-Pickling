@@ -32,6 +32,7 @@ class AdditionOperations:
                 print("Error: Wrong Tel Format, It must has 4 digits")
 
         Staff(first_name, last_name, office, tel)
+        print("Record added.")
 
     @staticmethod
     def add_animal():
@@ -47,6 +48,7 @@ class AdditionOperations:
         ec["hours_of_light_per_day"] = int(input("Enter Hours of Light per Day:"))
 
         Animal(gender, date, colour, ec)
+        print("Record added.")
 
     @staticmethod
     def add_food():
@@ -54,19 +56,21 @@ class AdditionOperations:
         name = input("Enter Food Name:")
         manufacturer = input("Enter Manufacturer:")
         Food(name, manufacturer)
+        print("Record added.")
 
     @staticmethod
     def add_feeding_record_given_animal():
         print("--Add feeding details of a given animal--")
         animal = animal_parser()
-        d = date_parser()
-        time = time_parser()
-        food = food_parser()
-        weight = int(input("Enter Weight:"))
-        staff = staff_parser()
+        date = date_parser("Date")
 
-        if animal.details_between_dates(for_print=False, operation_type="feeding", start_date=d, end_date=d) < 2:
-            animal.feeding_record.append(FeedingRecord(d, time, food, weight, staff))
+        if len([item for item in animal.feeding_record if item.date == date]) < 2:
+            time = time_parser()
+            food = food_parser()
+            weight = int(input("Enter Weight:"))
+            staff = staff_parser()
+            animal.feeding_record.append(FeedingRecord(date, time, food, weight, staff))
+            print("Record added.")
         else:
             raise Exception(f"Animal NO:{animal.no} should not be fed more than two times in a day")
 
@@ -74,14 +78,15 @@ class AdditionOperations:
     def add_observation_record_given_animal():
         print("--Add observation details of a given animal--")
         animal = animal_parser()
-        d = date_parser()
-        time = time_parser()
-        animal_weight = int(input("Enter Animal Weight:"))
-        temperature = int(input("Enter Temperature:"))
-        note = input("Enter Note:")
-        staff = staff_parser()
+        date = date_parser("Date")
 
-        if animal.details_between_dates(for_print=False, operation_type="observation", start_date=d, end_date=d) < 3:
-            animal.observation_record.append(ObservationRecord(d, time, animal_weight, temperature, note, staff))
+        if len([item for item in animal.observation_record if item.date == date]) < 3:
+            time = time_parser()
+            animal_weight = int(input("Enter Animal Weight:"))
+            temperature = int(input("Enter Temperature:"))
+            note = input("Enter Note:")
+            staff = staff_parser()
+            animal.observation_record.append(ObservationRecord(date, time, animal_weight, temperature, note, staff))
+            print("Record added.")
         else:
             raise Exception(f"Animal NO:{animal.no} should not be observed more than three times in a day")
