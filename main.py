@@ -25,11 +25,12 @@ addition_menu = str("--Addition Menu--\n"
 main_menu = str("--Main Menu--\n"
                 "1)Addition Operations\n"
                 "2)Report Operations\n"
-                "3)Exit")
+                "3)Save and Exit")
 
 
 class Application:
 
+    # references instance to each classes list which holds data
     def __init__(self, name):
         self.name = name
         self.staff = Staff.staff_list
@@ -77,11 +78,13 @@ class Application:
             except Exception as e:
                 print(f"Error: {e}")
 
+    # writes application data
     def store_data(self):
         file = open(self.name, 'wb')
         pickle.dump(self, file)
         file.close()
 
+    # given filename, loads data to corresponding classes lists
     @staticmethod
     def load_data(name):
         try:

@@ -6,6 +6,7 @@ from Helpers.Parsers import animal_parser, date_parser
 
 class ReportOperations:
 
+    # given filename data and header, writes to file
     @staticmethod
     def write_report(report_name, data, header):
         file = open(report_name, 'w')
@@ -16,6 +17,7 @@ class ReportOperations:
             file.write(header+data)
         file.close()
 
+    # given animal no, prints unique staff who fed it
     @staticmethod
     def staff_who_have_observed_a_given_animal():
         print("--Staff who have observed a given animal--")
@@ -31,6 +33,7 @@ class ReportOperations:
             [print(s) for s in result_set]
             ReportOperations.write_report("staff_who_have_observed_a_given_animal.txt", result_set, header)
 
+    # given start and end date, prints observation details
     @staticmethod
     def observation_details_of_a_given_animal_between_specified_dates():
         print("--Observation details of a given animal between specified dates--")
@@ -53,6 +56,7 @@ class ReportOperations:
                                           result,
                                           header)
 
+    # given start and end date, prints feeding details
     @staticmethod
     def feeding_details_of_a_given_animal_between_specified_dates():
         print("--Feeding details of a given animal between specified dates--")
@@ -72,6 +76,7 @@ class ReportOperations:
             ReportOperations.write_report("feeding_details_of_a_given_animal_between_specified_dates.txt", result,
                                           header)
 
+    # given animal no, prints unique food that is given to animal
     @staticmethod
     def foods_that_have_been_fed_to_a_given_animal():
         print("--Foods that have been fed to a given animal--")
@@ -87,6 +92,7 @@ class ReportOperations:
             [print(f) for f in result_set]
             ReportOperations.write_report("foods_that_have_been_fed_to_a_given_animal.txt", result_set, header)
 
+    # prints details of foods
     @staticmethod
     def details_of_all_foods():
         print("--Details of all foods--")
@@ -100,6 +106,7 @@ class ReportOperations:
             [print(f) for f in result]
             ReportOperations.write_report("details_of_all_foods.txt", result, header)
 
+    # prints details of animals
     @staticmethod
     def details_of_all_animals():
         print("--Details of all animals--")
@@ -114,6 +121,7 @@ class ReportOperations:
             [print(a) for a in result]
             ReportOperations.write_report("details_of_all_animals.txt", result, header)
 
+    # prints details of staff
     @staticmethod
     def details_of_all_staff():
         print("--Details of all staff--")
