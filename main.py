@@ -101,6 +101,9 @@ class Application:
             exit(-1)
 
 
+# Oguzhan Ergun - 2151918
+# Arslan Charyyev - 2202018
+
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         Application.load_data(sys.argv[1])

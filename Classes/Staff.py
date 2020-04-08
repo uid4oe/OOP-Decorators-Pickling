@@ -1,5 +1,5 @@
 from random import randint
-from re import search
+from re import match
 
 
 # input and type verifier decorator for Staff class
@@ -22,13 +22,12 @@ def input_verifier(*types):
             mock["office"] = values[3]
             mock["tel"] = values[4]
 
-            # verifies office input format, checks whether it starts with "A-" and whether the following digit
-            # group is three digit long
-            check_digits = search(r"\d+", mock["office"])
-            if not (mock["office"].startswith("A-") and check_digits is not None and len(check_digits.group(0)) == 3):
+            # verifies office input format, checks whether it starts with "A-" and followed by 3 digits
+            if match(r"^A-\d{3}$", mock["office"]) is None:
                 raise Exception("Wrong Office Format, It must have the format [A-XXX]")
 
-            if not 999 < mock["tel"] < 9999:
+            # verifies tel input format, checks whether it has only 4 digits
+            if match(r"^\d{4}$", mock["tel"]) is None:
                 raise Exception("Wrong Tel Format, It must has 4 digits")
 
             return f(values[0], mock)
@@ -43,7 +42,7 @@ class Staff:
 
     __slots__ = ["id", "first_name", "last_name", "office", "tel"]
 
-    @input_verifier(object, str, str, str, int)
+    @input_verifier(object, str, str, str, str)
     def __init__(self, verified_input):
         staff_id = randint(100000, 999999)
         while staff_id in Staff.staff_list:

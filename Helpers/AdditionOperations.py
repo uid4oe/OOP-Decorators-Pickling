@@ -1,4 +1,4 @@
-from re import search
+from re import match
 from Classes.FeedingRecord import FeedingRecord
 from Classes.ObservationRecord import ObservationRecord
 from Classes.Staff import Staff
@@ -17,19 +17,17 @@ class AdditionOperations:
 
         while not office_check:
             office = input("Enter Office [A-XXX]:")
-            check_digits = search(r"\d+", office)
-            if office.startswith("A-") and check_digits is not None and len(check_digits.group(0)) == 3:
-
-                office_check = True
+            if match(r"^A-\d{3}$", office) is None:
+                 print("Error: Wrong Office Format, It must have the format [A-XXX]")
             else:
-                print("Error: Wrong Office Format, It must have the format [A-XXX]")
+                office_check = True
 
         while not tel_check:
-            tel = int(input("Enter Telephone [4 Digits]:"))
-            if 999 < tel < 9999:
-                tel_check = True
+            tel = input("Enter Telephone [4 Digits]:")
+            if match(r"^\d{4}$", tel) is None:
+                print("Error: Wrong Tel Format, It must has only 4 digits")
             else:
-                print("Error: Wrong Tel Format, It must has 4 digits")
+                tel_check = True    
 
         Staff(first_name, last_name, office, tel)
         print("Record added.")
