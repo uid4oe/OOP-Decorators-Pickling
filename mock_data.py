@@ -8,8 +8,8 @@ from Classes.Staff import get_staff, Staff
 date = datetime.now().date()
 time = datetime.now().time()
 
-s1 = Staff("Oguzhan", "Ergun", "A-111", 1234)
-s2 = Staff("oe", "00", "A-222", 9876)
+s1 = Staff("Oguzhan", "Ergun", "A-111", "1234")
+s2 = Staff("Mock", "User", "A-222", "9876")
 f1 = Food("Regular Sterilised 37", "Royal Canin")
 f2 = Food("Regular Fit 32", "Royal Canin")
 f3 = Food("Chicken in Jelly", "Whiskas")

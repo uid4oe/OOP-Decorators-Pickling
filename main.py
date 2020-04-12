@@ -101,9 +101,6 @@ class Application:
             exit(-1)
 
 
-# Oguzhan Ergun - 2151918
-# Arslan Charyyev - 2202018
-
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         Application.load_data(sys.argv[1])
@@ -112,4 +109,12 @@ if __name__ == '__main__':
         print("File not provided, creating new application.")
         new_app_name = input("Enter Name of the Application:")
         app = Application(new_app_name + ".txt")
+
+        while True:
+            mock_data = input("Would you like to populate application with mock data? [y/n]:")
+            if mock_data == 'y' or mock_data == 'n':
+                break
+        if mock_data == 'y':
+            import mock_data
+
     app.menu()
